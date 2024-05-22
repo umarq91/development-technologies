@@ -1,5 +1,7 @@
 
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import {z} from "zod"
 /*
 What i learned ?
 react-hook-form
@@ -10,21 +12,28 @@ react-hook-form
     we can put deault values in form too by adding deault values in useForm params
 */
 
-type FormData = {
-    name:string,
-    email:string
-}
+const schema = z.object(({
+    name: z.string().min(7),
+    email: z.string().email("Invalid email address"),
+}))
+
+type formFields = z.infer<typeof schema>
+// type FormData = {
+//     name:string,
+//     email:string
+// }
 function SimpleForm() {
-const {register , handleSubmit ,formState: {errors, isSubmitting}} = useForm<FormData>({
+const {register , handleSubmit ,formState: {errors, isSubmitting}} = useForm<formFields>({
     defaultValues: {
         name: 'default name',
         email: 'default email'
-    }
+    },
+    resolver:zodResolver(schema)
 })
 
 // To Prevent Managing Loading state while form is submitting
 const onSubmit = async(data: any) => {
-    await new Promise((r) => setTimeout(r, 3000))
+    await new Promise((r) => setTimeout(r, 1000))
     console.log(data);
     
 }
