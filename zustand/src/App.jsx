@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import useStore from './store'
 
-function App() {
+function App() {  
 
   const {todos,addTodo}=useStore()
 console.log(todos);
