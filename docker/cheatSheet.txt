@@ -23,3 +23,18 @@ Important Commands of Docker
     basically helps you to run a command inside a running container ,widly used for debugging
     example docker exec my_container ls 
 
+
+-- docker build -t <image name> 
+    when you make a dockerFile to create a custom Image run this command to build your image
+
+-- docker build -e PORT=3000 -it <image name> 
+to pass Environemnt variables in Image ,  run this command , imagine i want to pass PORT as an env i'd have to pass it with ' -e ' 
+
+-- docker run -p 3000:3000 <image name>
+    since containers are isolated we have to Expose their ports using port mapping
+    run your image with port mapping , means yourPort:ContainerPort , you can use it on the same port as well as change itv
+
+when you do this 
+    => docker exec <containerId> bash
+    it will goto promop shell then you can write 
+    => " cat index.js" to check the content of index.js
