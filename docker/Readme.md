@@ -28,7 +28,13 @@ imagine I use node10 ,redis 5,react 17 and many more things to setup my develope
     and many many more issues that we face 
 
 
-    <!-- Containers / Images -->
-
+Things i Learned :
+1- Problem Statement 
+2-Installation of Docker CLI and desktop
+3-images/containers
+4- Running Ubuntu or other image in container
+5-Multiple containers
+6-Port Mapping
+7- Envb
 
     
